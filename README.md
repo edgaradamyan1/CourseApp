@@ -16,3 +16,6 @@ SwiftUI Concepts:
 @Binding: Provides two-way data binding for the text fields, enabling dynamic updates of the user input.
 ForEach: Used to generate multiple instances of views (text fields and buttons) based on data arrays, allowing for dynamic UI generation.
 Custom Layouts: Functions like separator(), title(), and subTitle() provide reusable UI elements, making the layout structure more modular.
+
+Link:
+https://www.figma.com/design/LiHXDmjUl0poMrHv6h3xOH/Free-Online-E-Learning-App-Design-(Community)?node-id=363-744&t=NJgCZ0tM4x1kWiCE-0
