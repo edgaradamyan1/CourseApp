@@ -13,12 +13,12 @@ struct SignInView: View {
   @State var isTapped = false
   
   var body: some View {
-    title()
-    subTitle(text: "Login to Edu Corner")
+    writeTitle()
+    writeSubTitle(text: "Login to Edu Corner")
     textFields
     forgotPassword
-    continueButton()
-    seperator()
+    drawContinueButton()
+    makeSeparator()
     buttons
     footer
   }

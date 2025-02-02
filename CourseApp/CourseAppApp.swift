@@ -11,7 +11,7 @@ import SwiftUI
 struct CourseAppApp: App {
     var body: some Scene {
         WindowGroup {
-            SignUpView()
+          HomeView()
         }
     }
 }

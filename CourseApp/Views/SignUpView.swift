@@ -13,11 +13,11 @@ struct SignUpView: View {
   
   
     var body: some View {
-      title()
-      subTitle(text: "Sign Up to Edu Corner")
+      writeTitle()
+      writeSubTitle(text: "Sign Up to Edu Corner")
       textfield
-      continueButton()
-      seperator()
+      drawContinueButton()
+      makeSeparator()
       buttons
       footer
     }

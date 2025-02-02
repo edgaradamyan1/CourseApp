@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-func seperator() -> some View {
+func makeSeparator() -> some View {
   HStack {
     Rectangle()
       .fill(.lightGrayCustom)
@@ -25,20 +25,20 @@ func seperator() -> some View {
   }
 }
 
-func title() -> some View {
+func writeTitle() -> some View {
   Text("Welcome !")
     .font(.system(size: 28).weight(.bold))
     
     
 }
 
-func subTitle(text: String) -> some View {
+func writeSubTitle(text: String) -> some View {
   Text(text)
     .font(.system(size: 18).bold())
     .padding(.vertical, 10)
 }
 
-func continueButton() -> some View {
+func drawContinueButton() -> some View {
   Button {
     print("continue")
   } label: {
