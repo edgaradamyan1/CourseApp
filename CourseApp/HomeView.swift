@@ -9,10 +9,25 @@ import SwiftUI
 
 struct HomeView: View {
   @State var searchedWord = ""
+  @StateObject var viewModel = AppViewModel()
   
   var body: some View {
     header
     searchTextField
+    topCategories
+    categorieButtons
+    createSection(text: "Continue Learning")
+    courses
+    createSection(text: "New & Trending Courses")
+  }
+  
+  var topCategories: some View {
+    
+      Text("Top Categories")
+        .font(.system(size: 17))
+        .fontWeight(.bold)
+        .frame(maxWidth: .infinity,alignment: .leading)
+        .padding()
   }
   
   var header: some View {
@@ -62,19 +77,35 @@ struct HomeView: View {
             Image("filter")
           }
       }
-
+      
       
     }
     .padding(.horizontal)
     
   }
   
+  var categorieButtons: some View {
+    HStack {
+      ForEach(viewModel.categoryButtons, id: \.title) { button in
+        categorieButtonView(data: button)
+        
+      }
+    }
+    .padding(.horizontal)
+  }
+  
+  var courses: some View {
+    ForEach(viewModel.courses, id: \.title) { data in
+      CourseCellView(data: data)
+    }
+  }
   
 }
 
 
 
 
+
 #Preview {
-    HomeView()
+  HomeView()
 }

@@ -55,3 +55,27 @@ func drawContinueButton() -> some View {
   }
 
 }
+
+func createSection(text: String) -> some View {
+  HStack {
+    Text(text)
+      .font(.system(size: 17))
+      .fontWeight(.bold)
+    
+    Spacer()
+    
+    Button {
+      print("View All")
+    } label: {
+      Text("View All")
+        .foregroundStyle(.oceanBlue)
+    }
+
+  }
+  .padding()
+  
+}
+
+#Preview(body: {
+  HomeView()
+})

@@ -70,7 +70,7 @@ struct SignInView: View {
   }
   
   var buttons: some View {
-    ForEach(viewModel.buttons, id: \.title) { item in
+    ForEach(viewModel.registrationButtons, id: \.title) { item in
       ButtonView(data: item)
     }
   }
