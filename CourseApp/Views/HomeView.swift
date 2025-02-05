@@ -12,14 +12,19 @@ struct HomeView: View {
   @StateObject var viewModel = AppViewModel()
   
   var body: some View {
-    header
-    searchTextField
-    topCategories
-    categorieButtons
-    createSection(text: "Continue Learning")
-    courses
-    createSection(text: "New & Trending Courses")
+    ScrollView {
+      header
+      searchTextField
+      topCategories
+      categorieButtons
+      createSection(text: "Continue Learning")
+      currentCourses
+      createSection(text: "New & Trending Courses")
+      newCourses
+    }
+    
   }
+  
   
   var topCategories: some View {
     
@@ -94,13 +99,21 @@ struct HomeView: View {
     .padding(.horizontal)
   }
   
-  var courses: some View {
-    ForEach(viewModel.courses, id: \.title) { data in
+  var currentCourses: some View {
+    ForEach(viewModel.startedCourses, id: \.title) { data in
       CourseCellView(data: data)
     }
   }
   
+  var newCourses: some View {
+    HStack{
+      ForEach(viewModel.newCourses, id: \.title) { data in
+        NewCoursesView(data: data)
+      }
+    }
+  }
 }
+
 
 
 

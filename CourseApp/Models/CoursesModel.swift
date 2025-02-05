@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CourseModel {
+struct startedCoursesModel {
   let title: String
   let image: String
   let teacher: Teacher
