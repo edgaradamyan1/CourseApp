@@ -9,29 +9,35 @@ import SwiftUI
 
 
 struct CourseCellView: View {
-  let data: CourseModel
+  let data: startedCoursesModel
   
   var body: some View {
-    RoundedRectangle(cornerRadius: 5)
-      .fill(.white)
-      .shadow(radius: 5, y: 3)
-      .frame(maxWidth: .infinity, maxHeight: 115)
-      .padding(.horizontal)
-      .overlay {
-        HStack {
-          Image(data.image)
-          
-          VStack {
-            Text(data.title)
-            HStack {
-              Image(data.teacher.image)
-              Text(data.teacher.name)
-            }
-            Text(data.time)
-          }
-          circle
+    
+    HStack {
+      Image(data.image)
+      
+      VStack {
+        Text(data.title)
+          .fontWeight(.bold)
+      HStack {
+        Image(data.teacher.image)
+        Text(data.teacher.name)
+          .foregroundStyle(.steelGray)
         }
+        Text(data.time)
+          .foregroundStyle(.steelGray)
       }
+      circle
+    }
+    .overlay {
+      RoundedRectangle(cornerRadius: 5)
+
+        .fill(.clear)
+        .shadow(radius: 5, y: 3)
+        .frame(maxHeight: 115)
+        
+       
+    }
   }
   
   var circle: some View {
@@ -55,4 +61,8 @@ struct CourseCellView: View {
     }
     .padding(.trailing, 2)
   }
+}
+
+#Preview {
+  HomeView()
 }

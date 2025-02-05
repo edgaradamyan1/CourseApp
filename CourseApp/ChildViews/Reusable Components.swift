@@ -76,6 +76,13 @@ func createSection(text: String) -> some View {
   
 }
 
+func writeSectionTitle(title: String) -> some View {
+  Text(title)
+    .padding(.horizontal)
+    .font(.system(size: 17))
+    .fontWeight(.bold)
+}
+
 #Preview(body: {
-  HomeView()
+  DetailView()
 })

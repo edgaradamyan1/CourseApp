@@ -19,3 +19,13 @@ struct Teacher {
   let name: String
   let image: String
 }
+
+struct NewCourseModel {
+  let title: String
+  let level: String
+  let videos: String
+  var rating: String
+  var price: String
+  let image: String
+  let teacher : Teacher
+}

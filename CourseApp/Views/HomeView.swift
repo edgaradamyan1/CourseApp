@@ -12,19 +12,24 @@ struct HomeView: View {
   @StateObject var viewModel = AppViewModel()
   
   var body: some View {
-    ScrollView {
-      header
-      searchTextField
-      topCategories
-      categorieButtons
-      createSection(text: "Continue Learning")
-      currentCourses
-      createSection(text: "New & Trending Courses")
-      newCourses
+    NavigationStack {
+      ScrollView {
+        header
+        searchTextField
+        topCategories
+        categorieButtons
+        createSection(text: "Continue Learning")
+        currentCourses
+        createSection(text: "New & Trending Courses")
+        
+        NavigationLink(destination: DetailView()) {
+          newCourses
+        }
+        
+      }
+      
     }
-    
   }
-  
   
   var topCategories: some View {
     
