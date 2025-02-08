@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct DetailView: View {
- 
+  var course: NewCourseModel
   @StateObject var viewModel = AppViewModel()
   
   var body: some View {
-    CourseDetailView(course: viewModel.newCourses.first!)
+    CourseDetailView(course: course)
   }
 }
 
@@ -20,6 +20,8 @@ struct DetailView: View {
 struct CourseDetailView: View {
   var course: NewCourseModel
   @StateObject var viewModel = AppViewModel()
+  
+  var skills: [String] = ["JavaScript", "PHP", "Ruby"]
   
   let columns = [GridItem(.flexible()), GridItem(.flexible())]
   
@@ -37,6 +39,8 @@ struct CourseDetailView: View {
         courseDescription
         readMoreButton
         writeSectionTitle(title: "Skills You Will Gain")
+        skillsView
+        startButton
       }
     }
 
@@ -92,6 +96,7 @@ struct CourseDetailView: View {
           Button {
             print("hi")
           } label: {
+            
             HStack {
               Text(button)
                 .foregroundStyle(.black)
@@ -136,23 +141,60 @@ struct CourseDetailView: View {
       .font(.system(size: 17))
       .padding(.horizontal)
   }
-}
-
-var readMoreButton: some View {
-  Button {
-    print("read More")
-  } label: {
-    HStack {
-      Text("Read More")
-        .fontWeight(.bold)
-        .foregroundStyle(Color.oceanBlue)
-      Image(systemName: "chevron.down")
+  
+  var readMoreButton: some View {
+    Button {
+      print("read More")
+    } label: {
+      HStack {
+        Text("Read More")
+          .fontWeight(.bold)
+          .foregroundStyle(Color.oceanBlue)
+        Image(systemName: "chevron.down")
+      }
+      .padding(.horizontal)
+      .padding(.bottom)
     }
-    .padding(.horizontal)
-    .padding(.bottom)
-  }
 
+  }
+  
+  var skillsView: some View {
+    VStack(alignment: .leading) {
+      ForEach(skills, id: \.self) { skill in
+        HStack {
+          Image("point")
+          
+          Text(skill)
+        }
+        .padding(.horizontal)
+      }
+    }
+  }
+  
+  var startButton: some View {
+    Button {
+      print("Start")
+    } label: {
+      RoundedRectangle(cornerRadius: 10)
+        .fill(.oceanBlue)
+        .frame(height: 55)
+        .frame(maxWidth: .infinity)
+        .overlay {
+          Text("Start Course")
+            .font(.system(size: 16).weight(.bold))
+            .foregroundStyle(.white)
+        }
+        .padding()
+     
+    
+    }
+
+  }
 }
+
+
+
+
 
 
 

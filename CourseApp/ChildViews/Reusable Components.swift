@@ -83,6 +83,4 @@ func writeSectionTitle(title: String) -> some View {
     .fontWeight(.bold)
 }
 
-#Preview(body: {
-  DetailView()
-})
+

@@ -21,10 +21,8 @@ struct HomeView: View {
         createSection(text: "Continue Learning")
         currentCourses
         createSection(text: "New & Trending Courses")
+        newCourses
         
-        NavigationLink(destination: DetailView()) {
-          newCourses
-        }
         
       }
       
@@ -113,7 +111,10 @@ struct HomeView: View {
   var newCourses: some View {
     HStack{
       ForEach(viewModel.newCourses, id: \.title) { data in
-        NewCoursesView(data: data)
+        NavigationLink(destination: DetailView(course: data)) {
+          NewCoursesView(data: data)
+        }
+        
       }
     }
   }
