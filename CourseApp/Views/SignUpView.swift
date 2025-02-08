@@ -13,11 +13,11 @@ struct SignUpView: View {
   
   
     var body: some View {
-      title()
-      subTitle(text: "Sign Up to Edu Corner")
+      writeTitle()
+      writeSubTitle(text: "Sign Up to Edu Corner")
       textfield
-      continueButton()
-      seperator()
+      drawContinueButton()
+      makeSeparator()
       buttons
       footer
     }
@@ -32,7 +32,7 @@ struct SignUpView: View {
   }
   
   var buttons: some View {
-    ForEach(viewModel.buttons, id: \.title) { item in
+    ForEach(viewModel.registrationButtons, id: \.title) { item in
       ButtonView(data: item)
     }
   }
